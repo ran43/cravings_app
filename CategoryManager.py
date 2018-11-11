@@ -1,4 +1,4 @@
-from Category.py import *
+from Category import *
 
 # CategoryList class definition
 class CategoryManager():
@@ -7,7 +7,7 @@ class CategoryManager():
 		self.category_list = []
 
 	def add_category(self, new_category_name):
-		new_category = Category(label=new_category_name, window=window, category_manager=self)
+		new_category = Category(label=new_category_name, category_manager=self)
 		self.category_list.append(new_category)
 		return new_category
 

@@ -1,4 +1,5 @@
-#Achievements
+from Achievement import *
+
 class Achievements:
 	def __init__(self):
 		time_achievements_list = []

@@ -1,4 +1,3 @@
-#Timer
 class Timer:
 	def __init__(self, owning_category):
 		self.start_times_list = []
@@ -6,11 +5,7 @@ class Timer:
 		self.time_last_updated_list = []
 		self.personal_best = 0
 		self.running = False
-		self.start_button = Button(window, text = "Start Timer", command = self.start_timer)
-		self.end_button = Button(window, text = "Streak Broken", command = self.stop_timer)
-		self.update_timer_button = Button(window, text = "Update Timer", command = self.update_timer)
 		self.owner = owning_category
-		self.time_elapsed_label = Label(window, text = "")
 		self.time_elapsed_days = 0
 		self.time_elapsed_hours = 0
 		self.time_elapsed_minutes = 0

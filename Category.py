@@ -1,5 +1,8 @@
+from Timer import *
+from Achievements import *
+
 class Category():
-	def __init__(self, label, window, category_manager):
+	def __init__(self, label, category_manager):
 		"""Initialises an object of the Category class. This object owns all of the data about that category."""
 		# This is the name of the category that will be displayed on the button for the category. Should maybe also be at the top of the category page? Above the timer. 
 		self.name = label
@@ -42,41 +45,41 @@ class Category():
 		for option in self.options_list:
 			option.pressed = False
 
-""" All to be moved?"""
-	def pressed_callback(self):
-		self.pressed = True
-		self.owner.undisplay_categories() # Need to define this.
-		self.load_category_page()
+# """ All to be moved?"""
+# 	def pressed_callback(self):
+# 		self.pressed = True
+# 		self.owner.undisplay_categories() # Need to define this.
+# 		self.load_category_page()
 
-	def craving_button_callback(self):
-		self.unload_category_page()
-		self.cravings_counter+=1
-		self.load_options_page()
+# 	def craving_button_callback(self):
+# 		self.unload_category_page()
+# 		self.cravings_counter+=1
+# 		self.load_options_page()
 
-	def achievements_button_callback(self):
-		self.unload_category_page()
-		self.achievements.load_achievements_page() #### The interpreter is claiming that this is taking an argument but it clearly isn't. What's going on? 
+# 	def achievements_button_callback(self):
+# 		self.unload_category_page()
+# 		self.achievements.load_achievements_page() #### The interpreter is claiming that this is taking an argument but it clearly isn't. What's going on? 
 
-	def back_button_callback(self):
-		if self.category_page_loaded:
-			self.return_to_main_page()
-		elif self.options_page_loaded:
-			self.return_to_category_page()
+# 	def back_button_callback(self):
+# 		if self.category_page_loaded:
+# 			self.return_to_main_page()
+# 		elif self.options_page_loaded:
+# 			self.return_to_category_page()
 
-	def return_to_category_page(self):
-		self.unload_options_page()
-		self.load_category_page()
+# 	def return_to_category_page(self):
+# 		self.unload_options_page()
+# 		self.load_category_page()
 
-	def next_callback(self):
-		self.increment_selected_options()
-		self.unload_options_page()
-		#self.load_responses_page()
+# 	def next_callback(self):
+# 		self.increment_selected_options()
+# 		self.unload_options_page()
+# 		#self.load_responses_page()
 
-	def return_to_main_page(self):
-		self.unload_category_page()
-		self.owner.load_categories_page()
+# 	def return_to_main_page(self):
+# 		self.unload_category_page()
+# 		self.owner.load_categories_page()
 
-	def load_achievements_page(self):
-		pass
-		# This should display the achievements in some way that I'm not quite clear on quite yet. Grey-out the ones that haven't been won yet. 
+# 	def load_achievements_page(self):
+# 		pass
+# 		# This should display the achievements in some way that I'm not quite clear on quite yet. Grey-out the ones that haven't been won yet. 
 
