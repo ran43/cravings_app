@@ -1,5 +1,6 @@
 from Timer import *
 from Achievements import *
+from Option import *
 
 class Category():
 	def __init__(self, label, category_manager):
@@ -23,11 +24,10 @@ class Category():
 		#self.display_history_button()
 		#self.display_stats_button()
 
-	def add_option(self):
-		# This is a callback function from the add_option button.
-		# The user can input the name of this option, which is then appended to the options_list.
-		# Need a way of adding responses to the new option. Need to decide how to do this.
-		pass
+	def add_option(self,label):
+		new_option = Option(label=label, owner=self)
+		self.options_list.append(new_option)
+		return new_option
 
 	def delete_option(self):
 		# Callback function from the delete_option button. How exactly will this work? Will there be one delete_option button and then that takes you to another page in which you can delete options? Or will it be an option from each of the options within the option list. 
@@ -44,6 +44,12 @@ class Category():
 	def unset_option_selections(self):
 		for option in self.options_list:
 			option.pressed = False
+
+	def increment_cravings_counter(self):
+		self.cravings_counter+=1
+
+	def decrement_cravings_counter(self):
+		self.cravings_counter-=1
 
 # """ All to be moved?"""
 # 	def pressed_callback(self):

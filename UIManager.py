@@ -11,7 +11,6 @@ class UIManager(UIClass):
 		""" This will unload the currently loaded page and load the page 'page'"""
 		self.unload_page()
 		page.load_page()
-		pass
 
 	def unload_page(self):
 		"""Unplaces all currently placed widgets, as stored in widgets_loaded"""

@@ -33,7 +33,8 @@ class CategoryUI(PageUI):
 		self.widgets_in_page = []
 		if self.timer_ui.equivalent_timer.running == True:
 			self.widgets_in_page = [self.timer_ui.time_elapsed_label, 
-									self.timer_ui.update_timer_button, 
+									self.timer_ui.update_timer_button,
+									self.options_ui.main_button,
 									self.timer_ui.stop_timer_button,
 									self.stats_ui.main_button,
 									self.history_ui.main_button,
@@ -44,5 +45,9 @@ class CategoryUI(PageUI):
 									self.stats_ui.main_button,
 									self.history_ui.main_button,
 									self.back_button]
+
+	def load_page(self):
+		self.recalculate_widgets_in_page()
+		PageUI.load_page(self)
 
 
