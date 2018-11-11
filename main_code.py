@@ -1,9 +1,23 @@
+from CategoryManager.py import *
+from UIManager import *
+
 # Initialising the Window.
 window = Tk()
  
 window.title("Crest the Wave")
 
 window.geometry('350x500')
+
+category_manager = CategoryManager()
+UIManager.go_to_page()
+
+
+
+
+
+
+
+
 
 
 #Initialising the Category List
