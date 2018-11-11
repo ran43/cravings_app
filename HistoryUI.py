@@ -4,4 +4,6 @@ class HistoryUI(PageUI):
 	def __init__(self, owning_UI_manager, window, owning_category_UI):
 		PageUI.__init__(self, owning_UI_manager=owning_UI_manager, window=window)
 		self.owning_category_UI=owning_category_UI
+		self.window = window
+		self.main_button = Button(master=self.window, text="History")
 	

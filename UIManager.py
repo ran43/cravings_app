@@ -17,6 +17,7 @@ class UIManager(UIClass):
 		"""Unplaces all currently placed widgets, as stored in widgets_loaded"""
 		for widget in self.widgets_loaded:
 			widget.place_forget()
+		self.widgets_loaded = []
 
 
 
