@@ -15,7 +15,7 @@ class Category():
 		self.achievements = Achievements()
 		self.in_category = False
 		# This button is visible in the main page. Pressing it will take the user to the category page. 
-		self.total_pressed = 0
+		self.total_selected = 0
 		# This button is visible at the top-left? of the category page and pressing it will call the load_history_page() function. 
 		self.owner = category_manager
 		# This keeps track of the total number of times that the cravings button has been pressed. This information is available in the stats page and is used to award achievements. 
@@ -51,41 +51,5 @@ class Category():
 	def decrement_cravings_counter(self):
 		self.cravings_counter-=1
 
-# """ All to be moved?"""
-# 	def pressed_callback(self):
-# 		self.pressed = True
-# 		self.owner.undisplay_categories() # Need to define this.
-# 		self.load_category_page()
-
-# 	def craving_button_callback(self):
-# 		self.unload_category_page()
-# 		self.cravings_counter+=1
-# 		self.load_options_page()
-
-# 	def achievements_button_callback(self):
-# 		self.unload_category_page()
-# 		self.achievements.load_achievements_page() #### The interpreter is claiming that this is taking an argument but it clearly isn't. What's going on? 
-
-# 	def back_button_callback(self):
-# 		if self.category_page_loaded:
-# 			self.return_to_main_page()
-# 		elif self.options_page_loaded:
-# 			self.return_to_category_page()
-
-# 	def return_to_category_page(self):
-# 		self.unload_options_page()
-# 		self.load_category_page()
-
-# 	def next_callback(self):
-# 		self.increment_selected_options()
-# 		self.unload_options_page()
-# 		#self.load_responses_page()
-
-# 	def return_to_main_page(self):
-# 		self.unload_category_page()
-# 		self.owner.load_categories_page()
-
-# 	def load_achievements_page(self):
-# 		pass
-# 		# This should display the achievements in some way that I'm not quite clear on quite yet. Grey-out the ones that haven't been won yet. 
-
+	def reset_total_selected(self):
+		total_selected = 0

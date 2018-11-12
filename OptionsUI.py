@@ -2,6 +2,7 @@ from PageUI import *
 from CategoryUI import *
 from Category import *
 from OptionUI import *
+from ResponsesUI import *
 
 class OptionsUI(PageUI):
 	def __init__(self, owning_category_UI, owning_UI_manager, window):
@@ -12,10 +13,10 @@ class OptionsUI(PageUI):
 		self.window = window
 		self.explanatory_label = Label(master=self.window, text=" Please select the options that apply\n\n at present (up to 5) and press 'Next'.")
 		self.add_option_button = Button(master=self.window, text="Add Reason", command=self.add_option_button_callback)
-		self.next_button = Button(master=self.window, text="Next")
+		self.next_button = Button(master=self.window, text="Next", command=self.next_button_callback)
 		self.back_button = Button(master=self.window, text = "Back", command=self.back_button_callback)
 		self.recalculate_widgets_in_page()
-
+		self.responses_ui = ResponsesUI(window=window, owning_UI_manager=owning_UI_manager)
 
 	def craving_button_callback(self):
 		self.owning_category_UI.category_represented.increment_cravings_counter()
@@ -38,12 +39,21 @@ class OptionsUI(PageUI):
 		self.owning_UI_manager.go_to_page(self)
 
 	def add_option_UI(self, option, label, new_option):
-		new_option_UI = OptionUI(owning_UI_manager=self.owning_UI_manager, window=self.window, label=label, option=new_option)
+		new_option_UI = OptionUI(owning_UI_manager=self.owning_UI_manager, window=self.window, label=label, option=new_option, owning_options_UI=self)
 		self.option_UIs_list.append(new_option_UI)
 
 	def back_button_callback(self):
 		self.owning_category_UI.category_represented.decrement_cravings_counter()
+		self.reset_options_selected()
 		self.owning_UI_manager.go_to_page(self.owning_category_UI)
+
+	def reset_options_selected(self):
+		for option_UI in self.option_UIs_list:
+			option_UI.unpress_button(option_UI.main_button)
+
+	def next_button_callback(self):
+		self.owning_UI_manager.go_to_page(self.responses_ui)
+		self.reset_options_selected()
 
 
 
