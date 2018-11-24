@@ -6,7 +6,6 @@ class UIClass():
     relx = 0.5
 
     def __init__(self, owning_UI_manager, window):
-        print(owning_UI_manager)
         self.owning_UI_manager = owning_UI_manager
         self.window=window
 

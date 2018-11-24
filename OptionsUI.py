@@ -16,7 +16,7 @@ class OptionsUI(PageUI):
 		self.next_button = Button(master=self.window, text="Next", command=self.next_button_callback)
 		self.back_button = Button(master=self.window, text = "Back", command=self.back_button_callback)
 		self.recalculate_widgets_in_page()
-		self.responses_ui = ResponsesUI(window=window, owning_UI_manager=owning_UI_manager)
+		self.responses_ui = ResponsesUI(window=window, owning_UI_manager=owning_UI_manager, owning_category_UI=owning_category_UI)
 
 	def craving_button_callback(self):
 		self.owning_category_UI.category_represented.increment_cravings_counter()
