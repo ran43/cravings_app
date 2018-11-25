@@ -6,6 +6,8 @@ class Response():
 		self.counter = 0
 		self.owner = owner
 		self.selected = False
+		self.times_shown = 0.0
+		self.times_pressed = 0.0
 
 	def select_response(self):
 		self.selected = True

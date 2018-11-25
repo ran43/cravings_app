@@ -9,10 +9,10 @@ class CategoryManagerUI(PageUI):
 		self.category_UIs_list = list()
 		self.add_category_button = Button(master=window, text="Add Category", command = self.add_category_button_callback)
 		self.delete_category_button = Button(master=window, text="Delete Category")
-		self.recalculate_widgets_in_page()
 		self.equivalent_category_manager = equivalent_category_manager
 		self.window = window
 		self.owning_UI_manager=owning_UI_manager
+		self.recalculate_widgets_in_page()
 
 	def recalculate_widgets_in_page(self):
 		self.widgets_in_page = [category_UI.main_button for category_UI in self.category_UIs_list]

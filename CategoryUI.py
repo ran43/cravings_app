@@ -6,7 +6,7 @@ from TimerUI import *
 from AchievementsUI import *
 from StatsUI import *
 from HistoryUI import *
-from AddResponsesUI import *
+from AddResponsesOptionsUI import *
 
 class CategoryUI(PageUI):
 	def __init__(self, owning_UI_manager, category, window, owning_category_manager):
