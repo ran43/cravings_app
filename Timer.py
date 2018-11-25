@@ -1,5 +1,6 @@
 from datetime import *
 from math import *
+from LoadSaveData import *
 
 class Timer:
 	def __init__(self, owning_category):
@@ -21,6 +22,7 @@ class Timer:
 		self.time_elapsed_list.append(self.time_last_updated_list[-1] - self.start_times_list[-1])
 		self.running = True
 		self.format_time_elapsed()
+		collect_and_save_data(self.owner.owner)
 
 	def format_time_elapsed(self):
 		most_recent_time_elapsed = self.time_elapsed_list[-1]
@@ -32,9 +34,11 @@ class Timer:
 
 	def stop_timer(self):
 		self.running = False
+		collect_and_save_data(self.owner.owner)
 
 	def update_timer(self):
 		# Takes the current time, subtracts from it the most recent start time (given by the entry at the end of the start_times_list and stores the result in self.time_elapsed. This is called when the update button is pressed. )
 		self.time_last_updated_list[-1] = datetime.now()
 		self.time_elapsed_list[-1] = self.time_last_updated_list[-1] - self.start_times_list[-1]
 		self.format_time_elapsed()
+		collect_and_save_data(self.owner.owner)

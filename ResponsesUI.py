@@ -1,6 +1,7 @@
 from PageUI import *
 from tkinter import *
 from random import *
+from LoadSaveData import *
 
 class ResponsesUI(PageUI):
 	def __init__(self, owning_UI_manager, window, owning_category_UI):
@@ -23,6 +24,7 @@ class ResponsesUI(PageUI):
 		self.increment_displayed_response_denominators()
 		self.increment_selected_response_numerators()
 		self.owning_UI_manager.go_to_page(self.owning_category_UI)
+		collect_and_save_data(self.owning_category_UI.owning_category_manager_UI.equivalent_category_manager)
 
 	def increment_displayed_response_denominators(self):
 		# Wants moving to the Responses.py class.

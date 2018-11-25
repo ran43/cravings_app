@@ -30,4 +30,4 @@ class CategoryManagerUI(PageUI):
 		self.owning_UI_manager.go_to_page(self)
 
 	def add_category_UI(self, category):
-		self.category_UIs_list.append(CategoryUI(owning_category_manager=self, owning_UI_manager=self.owning_UI_manager, category=category, window = self.window))
+		self.category_UIs_list.append(CategoryUI(owning_category_manager_UI=self, owning_UI_manager=self.owning_UI_manager, category=category, window = self.window))
