@@ -1,6 +1,7 @@
 from Timer import *
 from Achievements import *
 from Option import *
+from LoadSaveData import *
 
 class Category():
 	def __init__(self, label, category_manager):
@@ -27,6 +28,7 @@ class Category():
 	def add_option(self,label):
 		new_option = Option(label=label, owner=self)
 		self.options_list.append(new_option)
+		collect_and_save_data(self.owner)
 		return new_option
 
 	def delete_option(self):

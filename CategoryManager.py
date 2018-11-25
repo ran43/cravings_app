@@ -1,4 +1,5 @@
 from Category import *
+from LoadSaveData import *
 
 # CategoryList class definition
 class CategoryManager():
@@ -9,6 +10,7 @@ class CategoryManager():
 	def add_category(self, new_category_name):
 		new_category = Category(label=new_category_name, category_manager=self)
 		self.category_list.append(new_category)
+		collect_and_save_data(self)
 		return new_category
 
 	def delete_category(self):
