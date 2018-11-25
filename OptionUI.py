@@ -31,7 +31,6 @@ class OptionUI(UIClass):
 		if self.corresponding_option.selected == False:
 			self.corresponding_option.owning_category.total_selected+=1
 		self.corresponding_option.selected = True
-		print("Made option selected true")
 
 	def unpress_button(self, button):
 		button.config(highlightbackground='blue')

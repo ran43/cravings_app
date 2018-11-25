@@ -61,7 +61,15 @@ class ResponsesUI(PageUI):
 
 	def load_page(self):
 		self.recalculate_widgets_in_page()
+		self.reset_responses()
 		PageUI.load_page(self)
+		for response_UI in self.response_UIs_to_load:
+			response_UI.corresponding_response.times_shown+=1
+
+	def reset_responses(self):
+		for response_UI in self.response_UIs_to_load:
+			response_UI.unpress_button(response_UI.main_button)
+
 
 
 
